@@ -58,7 +58,7 @@ app.get('/search', (req, res) => {
   const source = req.query.source;
   const destination = req.query.destination;
 
-  Train.find({route: { $all: [source, destination] }})
+  Train.find({route: [source, destination]})
     .then(trains => {
       res.json(trains);
     })
